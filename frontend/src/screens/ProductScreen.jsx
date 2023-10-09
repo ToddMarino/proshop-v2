@@ -120,7 +120,7 @@ const ProductScreen = () => {
                     disabled={product.countInStock === 0}
                     onClick={addToCartHandler}
                   >
-                    Add To Card
+                    Add To Cart
                   </Button>
                 </ListGroup.Item>
               </ListGroup>
