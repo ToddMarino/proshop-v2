@@ -100,7 +100,7 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Subtotal:</Col>
-                  <Col>${cart.itemsPrice.toFixed(2)}</Col>
+                  <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -110,7 +110,7 @@ const PlaceOrderScreen = () => {
                   <Col>
                     {Number(cart.shippingPrice) === 0
                       ? 'FREE'
-                      : `$${cart.shippingPrice.toFixed(2)}`}
+                      : `$${cart.shippingPrice}`}
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -118,14 +118,14 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Tax (15%):</Col>
-                  <Col>${cart.taxPrice.toFixed(2)}</Col>
+                  <Col>${cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Total:</Col>
-                  <Col>${cart.totalPrice.toFixed(2)}</Col>
+                  <Col>${cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
