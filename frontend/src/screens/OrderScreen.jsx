@@ -191,13 +191,13 @@ const OrderScreen = () => {
               <ListGroup.Item>
                 <h2>Order Summary</h2>
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item className='py-1'>
                 <Row>
                   <Col className='fw-medium'>Subtotal</Col>
                   <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item className='py-1'>
                 <Row>
                   <Col className='fw-medium'>Shipping</Col>
                   <Col>
@@ -208,7 +208,7 @@ const OrderScreen = () => {
                   </Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
+              <ListGroup.Item className='py-1'>
                 <Row>
                   <Col className='fw-medium'>Tax</Col>
                   <Col>{order.taxPrice}</Col>
