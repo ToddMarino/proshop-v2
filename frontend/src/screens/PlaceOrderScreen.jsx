@@ -36,9 +36,8 @@ const PlaceOrderScreen = () => {
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       }).unwrap();
-
       dispatch(clearCartItems());
-      navigate(`/order/${res._id}`);
+      navigate(`/orders/${res._id}`);
     } catch (error) {
       toast.error(error);
     }
@@ -78,9 +77,7 @@ const PlaceOrderScreen = () => {
                         <Image src={item.image} alt={item.name} fluid rounded />
                       </Col>
                       <Col>
-                        <Link to={`/products/${item.product}`}>
-                          {item.name}
-                        </Link>
+                        <Link to={`/product/${item._id}`}>{item.name}</Link>
                       </Col>
                       <Col md={4}>
                         {item.qty} x ${item.price} = $ {item.qty * item.price}
@@ -103,7 +100,7 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Subtotal:</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>${cart.itemsPrice.toFixed(2)}</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -113,7 +110,7 @@ const PlaceOrderScreen = () => {
                   <Col>
                     {Number(cart.shippingPrice) === 0
                       ? 'FREE'
-                      : `$${cart.shippingPrice}`}
+                      : `$${cart.shippingPrice.toFixed(2)}`}
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -121,19 +118,21 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Tax (15%):</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>${cart.taxPrice.toFixed(2)}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Total:</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>${cart.totalPrice.toFixed(2)}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
-                {error && <Message variant='danger'>{error}</Message>}
+                {error && (
+                  <Message variant='danger'>{error.data.message}</Message>
+                )}
               </ListGroup.Item>
 
               <ListGroup.Item>
