@@ -58,6 +58,21 @@ const Header = () => {
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>
+
+                  {userInfo && userInfo.isAdmin && (
+                    <>
+                      <hr className='dropdown-divider'></hr>
+                      <LinkContainer to='/admin/productlist'>
+                        <NavDropdown.Item>Products</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to='/admin/userlist'>
+                        <NavDropdown.Item>Users</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to='/admin/orderlist'>
+                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                      </LinkContainer>
+                    </>
+                  )}
                 </NavDropdown>
               ) : (
                 <LinkContainer to='/login'>
@@ -66,6 +81,15 @@ const Header = () => {
                   </Nav.Link>
                 </LinkContainer>
               )}
+              {/* If you want a separate dropdown menu, use the code below */}
+
+              {/* {userInfo && userInfo.isAdmin && (
+                <NavDropdown title='Admin' id='adminmenu'>
+                  <LinkContainer to='/admin/orderlist'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
+              )} */}
             </Nav>
           </Navbar.Collapse>
         </Container>
